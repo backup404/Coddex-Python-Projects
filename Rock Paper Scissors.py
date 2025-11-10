@@ -48,11 +48,6 @@ elif(player - computer) % 3 == 1:
 else:
   print("You lose!")
 
-print()
-print("You chose", player)
-print("Computer chose", computer)
-
-
 '''
 logic explanation for base 3 modulo
 assign association between player result and computer result (subtraction)
