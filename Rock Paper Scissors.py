@@ -19,29 +19,61 @@ print("""
 Pick a number! 
 """)
 
+# Player and randomated CPU inputs
 player = int(input("Rock, Paper, Scissors, Go! "))
 computer = random.randint(1,3)
 
+# Print player's choice
 if player == 1:
-  player = "✊"
+    print("You chose ✊")
 elif player == 2:
-  player = "✋"
+    print("You chose ✋")
 else:
-  player = "✌️"
+    print("You chose ✌️")
 
+# Print computer's choice
 if computer == 1:
-  computer = "✊"
+    print("Computer chose ✊")
 elif computer == 2:
-  computer = "✋"
+    print("Computer chose ✋")
 else:
-  computer = "✌️"
+    print("Computer chose ✌️")
+
+# win/loss logic conditions
+print()
+if(player - computer) % 3 == 0:
+  print("We need a tie breaker!")
+elif(player - computer) % 3 == 1:
+  print("You win!")
+else:
+  print("You lose!")
 
 print()
 print("You chose", player)
 print("Computer chose", computer)
 
-print()
-print()
+
+'''
+logic explanation for base 3 modulo
+assign association between player result and computer result (subtraction)
+can not assign association with addition
+% by 3 because it's base 3
+
+print((3-2)%3)
+print((2-1)%3)
+print((1-3)%3)
+
+print((3-1))
+print((1-2))
+print((2-3))
+
+print((3-3)%3)
+print((1-1)%3)
+print((2-2)%3)
+'''
+
+'''
+logic for static win/loss conditions
 if player == 3 and computer == 2:
   print("You won!")
 elif player == 2 and computer == 1:
@@ -56,3 +88,4 @@ elif player == 2 and computer == 3:
   print("You lost!")
 else:
   print("You lost!")
+'''
