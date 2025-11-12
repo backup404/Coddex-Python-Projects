@@ -1,52 +1,46 @@
 # Rock Paper Scissors game in Python
-# Adding Lizard and Spock to game conditions.
-# Changes base modulo to 5 and win/loss conditions == multiple numbers.
+# Corrected computer choices from 3 > 5
+# Added a dictionary matching numbers to choices
+# Added logic to print player and computer choices
 
 import random
 
 print("""
-=========================
+=====================================
 !! Rock Paper Scissors Lizard Spock!!
-=========================
+=====================================
 """)
 
+choices = {
+  1 : "✊ Rock",
+  2 : "✋ Paper",
+  3 : "✌️ Scissors",
+  4 : "🦎 Lizard",
+  5 : "🖖 Spock"
+}
 
-print("""
-1) ✊
-2) ✋
-3) ✌️
-4) 🦎
-5) 🖖
-Pick a number! 
-""")
+for k, v in choices.items():
+    print(k, v)
+print("Pick a number!")
 
 # Player and randomated CPU inputs
-player = int(input("Rock, Paper, Scissors, Go! "))
-computer = random.randint(1,3)
+print()
+player = int(input("Rock, Paper, Scissors, Lizard, Spock - Go! "))
+computer = random.randint(1,5)
 
 # Print player's choice
-if player == 1:
-  print ("You chose ✊")
-elif player == 2:
-  print ("You chose ✋")
-elif player == 3:
-  print ("You chose ✌️")
-elif player == 4:
-  print ("You chose 🦎")
+print()
+if player in choices:
+    print(f"You chose {choices[player]}")
 else:
-  print ("You chose 🖖")
+    print("You gotta pick the right number")
 
 # Print computer's choice
-if computer == 1:
-  print ("You chose ✊")
-elif computer == 2:
-  print ("You chose ✋")
-elif computer == 3:
-  print ("You chose ✌️")
-elif computer == 4:
-  print ("You chose 🦎")
+if computer in choices:
+    print(f"Computer chose {choices[computer]}")
 else:
-  print ("You chose 🖖")
+    print("Computer messed up somehow.")
+
 
 # win/loss logic conditions
 print()
