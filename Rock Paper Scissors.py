@@ -1,13 +1,12 @@
-# making a rock paper scissors game
-# coded static conditions in the first version. wanted to map out logic. not a good solution.
-# use modulo for circular conditions with if statements (pending)
-# can improve on code with lists "my_list = [1, 2, 3, 4]" and dictionaries "my_dict = {"name": "Alice", "age": 25}" (pending)
+# Rock Paper Scissors game in Python
+# Adding Lizard and Spock to game conditions.
+# Changes base modulo to 5 and win/loss conditions == multiple numbers.
 
 import random
 
 print("""
 =========================
-!! Rock Paper Scissors !!
+!! Rock Paper Scissors Lizard Spock!!
 =========================
 """)
 
@@ -16,6 +15,8 @@ print("""
 1) ✊
 2) ✋
 3) ✌️
+4) 🦎
+5) 🖖
 Pick a number! 
 """)
 
@@ -25,62 +26,65 @@ computer = random.randint(1,3)
 
 # Print player's choice
 if player == 1:
-    print("You chose ✊")
+  print ("You chose ✊")
 elif player == 2:
-    print("You chose ✋")
+  print ("You chose ✋")
+elif player == 3:
+  print ("You chose ✌️")
+elif player == 4:
+  print ("You chose 🦎")
 else:
-    print("You chose ✌️")
+  print ("You chose 🖖")
 
 # Print computer's choice
 if computer == 1:
-    print("Computer chose ✊")
+  print ("You chose ✊")
 elif computer == 2:
-    print("Computer chose ✋")
+  print ("You chose ✋")
+elif computer == 3:
+  print ("You chose ✌️")
+elif computer == 4:
+  print ("You chose 🦎")
 else:
-    print("Computer chose ✌️")
+  print ("You chose 🖖")
 
 # win/loss logic conditions
 print()
-if(player - computer) % 3 == 0:
+if(player - computer) % 5 == 0:
   print("We need a tie breaker!")
-elif(player - computer) % 3 == 1:
+elif (player - computer) % 5 == 1 or (player - computer) % 5 == 2:
   print("You win!")
 else:
   print("You lose!")
 
 '''
-logic explanation for base 3 modulo
-assign association between player result and computer result (subtraction)
-can not assign association with addition
-% by 3 because it's base 3
+Logic conditions for base 5 modulo.
 
-print((3-2)%3)
-print((2-1)%3)
-print((1-3)%3)
+# Winning conditions
+print((5-4)%5)
+print((4-3)%5)
+print((3-2)%5)
+print((2-1)%5)
+print((1-5)%5)
+print((5-3)%5)
+print((4-2)%5)
+print((3-1)%5)
+print((2-5)%5)
+print((1-4)%5)
 
-print((3-1))
-print((1-2))
-print((2-3))
+# Lose Conditions
+print()
+print((1-2)%5)
+print((2-3)%5)
+print((3-4)%5)
+print((4-5)%5)
+print((5-1)%5)
+print((5-2)%5)
+print((4-1)%5)
+print((3-5)%5)
+print((2-4)%5)
+print((1-3)%5)
 
-print((3-3)%3)
-print((1-1)%3)
-print((2-2)%3)
-'''
-
-'''
-logic for static win/loss conditions
-if player == 3 and computer == 2:
-  print("You won!")
-elif player == 2 and computer == 1:
-  print("You won!")
-elif player == 1 and computer == 3:
-  print("You won!")
-elif player == 2 and computer == 3:
-  print("You lost!")
-elif player == 1 and computer == 2:
-  print("You lost!")
-elif player == 2 and computer == 3:
-  print("You lost!")
-else:
-  print("You lost!")
+# Tie Conditions
+print()
 '''
